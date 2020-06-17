@@ -12,6 +12,7 @@
   left: 50%;
   transform: translateX(-50%);
   top: 235px;
+  transition: top 0.3s linear;
 }
 #game .start {
   position: absolute;
@@ -23,6 +24,8 @@
   left: 50%;
   transform: translateX(-50%);
   font-weight: bolder;
+  transition: all 0.3s linear;
+  cursor: pointer;
 }
 #game .start-white {
   color: white;
@@ -40,6 +43,7 @@
   color: white;
   font-weight: bolder;
   font-size: 24px;
+  display: none;
 }
 #game .mask {
   position: absolute;
@@ -49,6 +53,7 @@
   left: 0;
   background: black;
   opacity: 0.3;
+  display: none;
 }
 #game .end {
   position: absolute;
@@ -56,6 +61,7 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+  display: none;
 }
 #game .end .over {
   font-size: 35px;
