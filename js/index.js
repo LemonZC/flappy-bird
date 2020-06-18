@@ -13,6 +13,9 @@ var bird = {
     pipeLastIndex: 3,
     score: 0,
     rankListNum: 8,
+
+    /************************************************************************/
+    //初始化
     init: function () {  
         this.initData();
         this.animate();
@@ -38,6 +41,9 @@ var bird = {
         var scoreArr = getLocal('score');
         return scoreArr ? scoreArr : [];
     },
+
+    /************************************************************************/
+    //动作
     animate: function () { 
         var count = 0;
 
@@ -100,7 +106,8 @@ var bird = {
         this.oStart.classList.remove('start-' + preColor);
         this.oStart.classList.add('start-' + this.startColor);
     },
-
+    /************************************************************************/
+    //碰撞检测
     judgeKnock: function () {
         this.judgeBoundary();
         this.judgePipe();
@@ -127,12 +134,14 @@ var bird = {
             this.oScore.innerText = this.score;
         }
     },
+
+    /************************************************************************/
+    //点击事件触发
     handle: function () {
         this.handleStart();
         this.handleClick();
         this.handleRestart();
     },
-
     handleStart: function () {
         this.oStart.onclick = this.start.bind(this);
     },
@@ -149,6 +158,7 @@ var bird = {
             self.createPipe(300 * (i + 1));
         }
     },
+    //玩游戏
     handleClick: function (x) {
         var self = this;
         this.el.onclick = function (e) {
@@ -164,6 +174,8 @@ var bird = {
             window.location.reload();
         };
     },
+    
+    //创建障碍管道
     createPipe: function (x) {
         var pipeHeight = this.getPipeHeight();
         var oUpPipe = createEle('div', ['pipe', 'pipe-up'], {
@@ -192,30 +204,9 @@ var bird = {
             down: downHeight
         };
     },
-    setScore: function() {
-         this.scoreArr.push({
-            score: this.score,
-            time: this.getDate()
-         });
-         //排序
-         this.scoreArr.sort(function(a, b){
-            return b.score - a.score;
-         });
-         this.scoreArr.splice(this.rankListNum);//只显示前八位         
-         setLocal('score', this.scoreArr);
-    },
-    getDate: function () {
-        var d = new Date();
-        var year = d.getFullYear();
-        var month = formatNum(d.getMonth() + 1);
-        var day = formatNum(d.getDate());
-        var hour = formatNum(d.getHours());
-        var minute = formatNum(d.getMinutes());
-        var second = formatNum(d.getSeconds());
-
-        return `${year}.${month}.${day} ${hour}:${minute}:${second}`;
-    },
-
+    
+    /************************************************************************/
+    //失败后操作
     gameFailed: function() {
         clearInterval(this.timer);
         this.oBird.style.display = 'none';
@@ -228,6 +219,31 @@ var bird = {
         this.renderRankList();
     },
     
+    setScore: function() {
+        this.scoreArr.push({
+           score: this.score,
+           time: this.getDate()
+        });
+        //排序
+        this.scoreArr.sort(function(a, b){
+           return b.score - a.score;
+        });
+        this.scoreArr.splice(this.rankListNum);//只显示前八位         
+        setLocal('score', this.scoreArr);
+   },
+
+   getDate: function () {
+       var d = new Date();
+       var year = d.getFullYear();
+       var month = formatNum(d.getMonth() + 1);
+       var day = formatNum(d.getDate());
+       var hour = formatNum(d.getHours());
+       var minute = formatNum(d.getMinutes());
+       var second = formatNum(d.getSeconds());
+
+       return `${year}.${month}.${day} ${hour}:${minute}:${second}`;
+   },
+
     renderRankList: function () {
         var template = '';        
         for (var i = 0; i < this.scoreArr.length; i++)
