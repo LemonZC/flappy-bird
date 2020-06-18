@@ -44,6 +44,7 @@
   font-weight: bolder;
   font-size: 24px;
   display: none;
+  z-index: 1;
 }
 #game .mask {
   position: absolute;
@@ -52,8 +53,9 @@
   bottom: 0;
   left: 0;
   background: black;
-  opacity: 0.3;
+  opacity: 0.7;
   display: none;
+  z-index: 2;
 }
 #game .end {
   position: absolute;
@@ -62,6 +64,7 @@
   transform: translateX(-50%);
   text-align: center;
   display: none;
+  z-index: 3;
 }
 #game .end .over {
   font-size: 35px;
@@ -117,4 +120,19 @@
   font-size: 18px;
   font-weight: bolder;
   cursor: pointer;
+}
+#game .pipe {
+  position: absolute;
+  width: 52px;
+  height: 150px;
+  z-index: 0;
+}
+#game .pipe-up {
+  top: 0;
+  background: url('../assets/pipe2.png');
+  background-position-y: bottom;
+}
+#game .pipe-down {
+  bottom: 0;
+  background: url('../assets/pipe1.png');
 }

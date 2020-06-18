@@ -48,6 +48,7 @@
         font-weight: bolder;
         font-size: 24px;
         display: none;
+        z-index: 1;
     }
 
     .mask {
@@ -57,8 +58,9 @@
         bottom: 0;
         left: 0;
         background: black;
-        opacity: 0.3;
+        opacity: 0.7;
         display: none;
+        z-index: 2;
     }
 
     .end {
@@ -68,6 +70,7 @@
         transform: translateX(-50%);
         text-align: center;
         display: none;
+        z-index: 3;
         .over {
             font-size: 35px;
             font-weight: bolder;
@@ -130,5 +133,23 @@
             font-weight: bolder;
             cursor: pointer;
         }
+    }
+
+    .pipe {
+        position: absolute;
+        width: 52px;
+        height: 150px;
+        z-index: 0;
+    }
+
+    .pipe-up {
+        top: 0;
+        background: url('../assets/pipe2.png');
+        background-position-y: bottom;
+    }
+
+    .pipe-down {
+        bottom: 0;
+        background: url('../assets/pipe1.png');
     }
 }
