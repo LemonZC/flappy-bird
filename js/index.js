@@ -228,7 +228,11 @@ var bird = {
         this.scoreArr.sort(function(a, b){
            return b.score - a.score;
         });
-        this.scoreArr.splice(this.rankListNum);//只显示前八位         
+        
+        if (this.scoreArr.length > this.rankListNum) {
+            this.scoreArr.splice(this.rankListNum);//只显示前八位    
+        }
+             
         setLocal('score', this.scoreArr);
    },
 
