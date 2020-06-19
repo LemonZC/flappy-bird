@@ -2,8 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird</title>
+    <!-- 让360双核浏览器用webkit内核渲染页面 !!! 注意，这行最好放在前面，防止浏览器开始解析时采用其它内置的渲染方案 -->
+    <meta name="renderer" content="webkit">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用 webkit 内核 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- 高版本安卓Chrome卡片式切换时的皮肤（卡片）颜色 -->
+    <meta name="theme-color" content="#9f0800">
+    <!-- iOS6全屏 Chrome高版本全屏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Mobile Specific Metas -->
+    <!-- !!!注意 minimal-ui 是iOS7.1的新属性，最小化浏览器UI，但是在 iOS8.1 被取消 -->
+    <!-- Safari 将会对有内容溢出 Viewport 区域的页面进行缩放适配，使溢出的内容完整展示而不出现滚动条，而在 Viewport 设置中引入了一个新属性 shrink-to-fit = no，该属性可以禁止这种缩放行为的发生。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
+    <!-- 指定苹果设备添加到主屏的标题 -->
+    <meta name="apple-mobile-web-app-title" content="title2">
+    <!-- 调试阶段禁止缓存，例如微信，QQ浏览器缓存 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- 禁止百度转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- 针对手持设备优化 -->
+    <!-- UC强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- or landscape -->
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- or landscape -->
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <!-- 使用了application这种应用模式后，页面将默认全屏，禁止长按菜单，禁止手势，标准排版，以及强制图片显示 -->
+    <meta name="browsermode" name="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" name="app">
+    <meta name="format-detection" name="telephone=no">
+    <!-- Windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/reset.css">
 </head>
